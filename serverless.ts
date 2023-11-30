@@ -5,28 +5,28 @@ const config: AWS = {
     provider: {
         profile: 'sweepbright-${self:provider.stage}',
         region: 'eu-west-1',
-        architecture: 'arm64',
-        runtime: 'provided.al2',
+        architecture: 'arm64', // <-- important
+        runtime: 'provided.al2', // <-- important
         name: 'aws',
         versionFunctions: false,
         stage: 'dev',
     },
     plugins: [
-        'serverless-go-plugin',
+        'serverless-go-plugin', // <-- important
         'serverless-offline',
     ],
     custom: {
         go: {
-            cmd: 'GOOS=linux GOARCH=arm64 go build -ldflags="-s -w"',
-            supportedRuntimes: ['provided.al2'],
-            buildProvidedRuntimeAsBootstrap: true,
+            cmd: 'GOOS=linux GOARCH=arm64 go build -ldflags="-s -w"', // <-- important
+            supportedRuntimes: ['provided.al2'], // <-- important
+            buildProvidedRuntimeAsBootstrap: true, // <-- important
         },
     },
 
 
     functions: {
         triangle: {
-            handler: 'functions/triangle/main.go',
+            handler: 'functions/triangle/main.go', // <-- important (path to go file instead of binary)
             events: [
                 {
                     http: {
@@ -37,7 +37,7 @@ const config: AWS = {
             ],
         },
         circle: {
-            handler: 'functions/circle/main.go',
+            handler: 'functions/circle/main.go', // <-- important (path to go file instead of binary)
             events: [
                 {
                     http: {
