@@ -26,7 +26,7 @@ const config: AWS = {
 
     functions: {
         triangle: {
-            handler: 'functions/triangle/main.go', // <-- important (path to go file instead of binary)
+            handler: './functions/triangle', // <-- important (path to go file instead of binary)
             events: [
                 {
                     http: {
@@ -37,7 +37,7 @@ const config: AWS = {
             ],
         },
         circle: {
-            handler: 'functions/circle/main.go', // <-- important (path to go file instead of binary)
+            handler: './functions/circle', // <-- important (path to go file instead of binary)
             events: [
                 {
                     http: {
