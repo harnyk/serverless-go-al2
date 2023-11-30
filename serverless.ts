@@ -12,8 +12,7 @@ const config: AWS = {
         stage: 'dev',
     },
     plugins: [
-        'serverless-go-plugin', // <-- important
-        'serverless-offline',
+        'serverless-go-plugin' // <-- important
     ],
     custom: {
         go: {
